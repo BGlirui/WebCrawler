@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="webPathEnsure" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wcrawler.controller.HomeLayout">
+   <children>
+      <JFXTextField fx:id="webUrl" layoutX="92.0" layoutY="48.0" promptText="请输入网址" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="30.0" />
+      <TableView fx:id="ruleTable" layoutX="29.0" layoutY="125.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="160.0">
+        <columns>
+          <TableColumn fx:id="ruleTableNum" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="编号" />
+          <TableColumn fx:id="ruleTableElementRange" maxWidth="90.0" minWidth="70.0" prefWidth="70.0" text="元素范围" />
+            <TableColumn fx:id="ruleTableRuleType" maxWidth="90.0" minWidth="70.0" prefWidth="70.0" text="规则类型" />
+            <TableColumn fx:id="ruleTableName" maxWidth="90.0" minWidth="70.0" prefWidth="70.0" text="字段名" />
+            <TableColumn fx:id="ruleTableIsNull" maxWidth="90.0" minWidth="70.0" prefWidth="70.0" text="可否为空" />
+            <TableColumn fx:id="ruleTableRuleDetails" prefWidth="211.0" text="规则详情" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <JFXTextField fx:id="ruleDetails" layoutX="50.0" layoutY="110.0" onMouseClicked="#ruleDetailsEvent" promptText="请输入配置详情" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="323.0" AnchorPane.topAnchor="126.0" />
+      <JFXButton fx:id="ruleAdd" layoutX="496.0" layoutY="106.0" onAction="#ruleAddEvent" text="添 加" textFill="#242ee8" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="126.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="50.0" layoutY="79.0" text="元素范围：" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="96.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="270.0" layoutY="78.0" text="规则类型：" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="96.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="ruleChange" layoutX="496.0" layoutY="109.0" onAction="#ruleChangeEvent" text="修 改" textFill="#2d27dd" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="126.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="ruleDelete" layoutX="496.0" layoutY="99.0" onAction="#ruleDeleteEvent" text="删 除" textFill="#381fdd" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="126.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="elementRange" layoutX="120.0" layoutY="65.0" onAction="#elementRangeEvent" prefWidth="138.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="95.0" />
+      <JFXComboBox fx:id="ruleType" layoutX="350.0" layoutY="65.0" onAction="#ruleTypeEvent" prefWidth="138.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="95.0" />
+      <JFXTextField fx:id="name" layoutX="510.0" layoutY="65.0" onMouseClicked="#nameEvent" promptText="请输入字段名" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="95.0" />
+      <JFXButton fx:id="run" layoutX="691.0" layoutY="74.0" onAction="#runEvent" prefWidth="110.0" text="点击开始！" textFill="#e4101e" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="test" layoutX="700.0" layoutY="30.0" onAction="#testEvent" prefHeight="29.0" prefWidth="60.0" text="Test" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="urlLink" layoutX="47.0" layoutY="66.0" promptText="请输入正则表达式，以便获取界面中的Url，从而扩大数据爬取范围" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="65.0" />
+      <JFXCheckBox fx:id="ruleIsNull" layoutX="595.0" layoutY="132.0" text="可否为空" AnchorPane.rightAnchor="227.0" AnchorPane.topAnchor="132.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXButton fx:id="excelCreat" layoutX="777.0" layoutY="98.0" onAction="#excelCreatEvent" prefWidth="150.0" text="Excel文件生成器" textFill="#f22020" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="95.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="410.0" layoutY="629.0" text="注意：请合理、合法使用该程序，请阅读目标网站的服务条款，如果目标网站不允许爬取数据时，建议放弃数据爬取行为。" textFill="#dd1818" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <Label layoutX="149.0" layoutY="645.0" text="免责声明：程序使用者需要承担使用程序时所产生的一切法律责任，程序开发者将不承担任何法律责任，点击右侧同意按钮后才可使用。" textFill="#e41e1e" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="100.0" />
+      <JFXButton fx:id="read" layoutX="800.0" layoutY="616.0" onAction="#readEvent" text="同意" textFill="#d01111" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wcrawler.controller.ExcelCreatLayout">
+   <children>
+      <JFXTextField fx:id="excelCreatPath" layoutX="109.0" layoutY="63.0" prefWidth="180.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
+      <JFXButton fx:id="excelCreatPathEnsure" layoutX="281.0" layoutY="63.0" onAction="#pathEnsureEvent" text="浏  览" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="excelCreatSelect" layoutX="200.0" layoutY="113.0" prefWidth="150.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0" />
+      <JFXButton fx:id="excelCreatEnsure" layoutX="123.0" layoutY="145.0" onAction="#ensureEvent" text="创    建" textAlignment="CENTER" textFill="#3210f5" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="127.0" layoutY="117.0" text="请选择文件：" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="72.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="excelCreatResult" layoutX="124.0" layoutY="112.0" text="结果！" textFill="#e11c1c" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="115.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
