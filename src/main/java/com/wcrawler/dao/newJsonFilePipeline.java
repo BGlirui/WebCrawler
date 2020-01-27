@@ -12,10 +12,7 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 import us.codecraft.webmagic.utils.FilePersistentBase;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
@@ -43,7 +40,8 @@ public class newJsonFilePipeline extends FilePersistentBase implements Pipeline 
         this.name = name;
         this.excelPath = excelPath;
         try {
-            PrintWriter printWriter = new PrintWriter(new FileWriter(getFile(this.path +"/"+ "head" + ".json")));
+            PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(getFile(this.path +"/"+ "head" + ".json")),"utf-8")));
+            //PrintWriter printWriter = new PrintWriter(new FileWriter(getFile(this.path +"/"+ "head" + ".json")));
             printWriter.write(JSON.toJSONString(wholeMap));
             printWriter.close();
         }catch (IOException e){
@@ -56,7 +54,8 @@ public class newJsonFilePipeline extends FilePersistentBase implements Pipeline 
         if(isWhole(resultItems.getAll())){
             if(isDuplication(resultItems.getAll())){
                 try{
-                    PrintWriter printWriter = new PrintWriter(new FileWriter(getFile(this.path +"/"+ DigestUtils.md5Hex(resultItems.getRequest().getUrl()) + ".json")));
+                    PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(getFile(this.path +"/"+ DigestUtils.md5Hex(resultItems.getRequest().getUrl()) + ".json")),"utf-8")));
+                    //PrintWriter printWriter = new PrintWriter(new FileWriter(getFile(this.path +"/"+ DigestUtils.md5Hex(resultItems.getRequest().getUrl()) + ".json")));
                     printWriter.write(JSON.toJSONString(resultItems.getAll()));
                     printWriter.close();
                     nowLineNum++;
@@ -68,7 +67,8 @@ public class newJsonFilePipeline extends FilePersistentBase implements Pipeline 
                         }
                         setPath(excelPath+"/"+name+"-"+format.format(new Date(System.currentTimeMillis()))+"/");
                         nowLineNum=0;
-                        PrintWriter printWriterNew = new PrintWriter(new FileWriter(getFile(this.path +"/"+ "head" + ".json")));
+                        PrintWriter printWriterNew = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(getFile(this.path +"/"+ "head" + ".json")),"utf-8")));
+                        //PrintWriter printWriterNew = new PrintWriter(new FileWriter(getFile(this.path +"/"+ "head" + ".json")));
                         printWriterNew.write(JSON.toJSONString(wholeMap));
                         printWriterNew.close();
                     }

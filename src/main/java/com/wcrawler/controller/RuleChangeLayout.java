@@ -53,6 +53,7 @@ public class RuleChangeLayout {
     @FXML
     private void ruleChangeEnsureEvent(){
         ruleTableElementRuleDetails = ruleChangeRuleDetails.getText();
+        ruleTableElementName = ruleChangeName.getText();
         elementRuleManage.getElementContents().get(num).setRuleTableElementRange(ruleTableElementRange);
         elementRuleManage.getElementContents().get(num).setRuleTableRuleType(ruleTableElementRuleType);
         ruleTableElementIsNull = ruleChangeIsNull.isSelected();
